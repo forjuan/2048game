@@ -1,0 +1,11 @@
+body { margin:0;padding:0}
+#playarea { width:450px;height:450px;margin:0 auto;position:relative;background: #B8AF9E;border-radius: 10px;}
+#playarea div {width:100px;height:100px;background:#CCC0B2;position:absolute;font-size: 60px;font-weight: bolder;color: #fff;text-align: center;line-height: 100px}
+.controls { float: right;margin-right: 100px;margin-top: -200px;}
+#play {width:50px;height:50px;background:#ccc;text-align: center;line-height: 50px;color:#fff;font-size: 16px;font-weight: bolder;border-radius: 40px;}
+#key {margin-top:10px;}
+#key span { width:60px;height:57px;display:inline-block;overflow: hidden;}
+#key>.top { display:block;background:url(../img/dire.jpg) no-repeat;}
+#key>.left {margin-left:-65px;background:url(../img/dire.jpg) no-repeat;background-position: -212px 0px}
+#key>.bottom { background:url(../img/dire.jpg) no-repeat;background-position: -145px 0px}
+#key>.right { background:url(../img/dire.jpg) no-repeat;background-position: -73px 0px}
