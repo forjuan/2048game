@@ -1,3 +1,4 @@
+//lj
 var div = document.getElementById("playarea");
 var loca = new Array(4);//位置
     for(var i=0;i<loca.length;i++){
@@ -83,13 +84,14 @@ function move(dir){
   if(dir == 'left' || dir == 'top'){
     for(var i = 0;i<4;i++){
       for(var j = 0;j< 4;j++){
-       if(dir == 'left'){//左边
+       if(dir == 'left'){//左边i行j列
           if(loca[i][j].value){
               var tarcol = findtarget(i,j,"left");
               if(j == tarcol) continue;
               var now = findindex(i,j);
               var pre = findindex(i,tarcol);
               changeData(now,pre,tarcol,i,j,"left");
+              move++;
           }
        }else if(dir == 'top'){//向上移动
               if(loca[j][i].value){
@@ -98,16 +100,15 @@ function move(dir){
                 var now = findindex(j,i);
                 var pre = findindex(tarcol,i);
                 changeData(now,pre,tarcol,i,j,"top");
-             
+                 move++;
               }
       }
-         move++;
-   }
-   }
+    }  
+   }//向上和向左移动结束
   }else if(dir == 'down' || dir == "right"){
-     for(var i = 0;i<4;i++){//i行
-      for(var j = 3;j>=0;j--){//j列
-         if(dir == 'right'){//右移动
+     for(var i = 0;i<4;i++){
+      for(var j = 3;j>=0;j--){
+         if(dir == 'right'){//右移动i行J列
             if(loca[i][j].value){
               var tarcol = findtarget(i,j,"right");
               if(tarcol == j) {continue;}
@@ -116,7 +117,7 @@ function move(dir){
               changeData(now,pre,tarcol,i,j,"right");
               move++;
             }
-        }else if(dir == 'down'){//下移动
+         }else if(dir == 'down'){//下移动i列j行
             if(loca[j][i].value){
             var tarcol = findtarget(j,i,"down");
             if(tarcol == j) {continue;}
@@ -124,11 +125,9 @@ function move(dir){
             var pre = findindex(tarcol,i);
             changeData(now,pre,tarcol,i,j,"down");
             move++;
-            box[now].change = true;
-        }
+           }
         }
       }
-         move++;
     }
   }
   for(i=0;i<box.length;i++){
@@ -206,19 +205,21 @@ function findtarget(m,n,dir){
               col=j;//找到第一个就退出循环
               break;
            }
+       }
+
+
        if(col == undefined) {//该行最右边列位置是目标位置
             return 3;
         }else{
               var now = findindex(m,n);
-              var rep = findindex(col,n);
+              var rep = findindex(m,col);
              if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
-              changevalue(now,pre);
+               changevalue(now,rep);
                return col; 
              }else {//不相等
               return col-1;
             }
        }
-     }
     }
 };
 function changevalue(now,rep){
