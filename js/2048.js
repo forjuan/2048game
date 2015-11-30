@@ -1,4 +1,4 @@
-//lj
+//lj,move 移动包含左右上下移动
 var div = document.getElementById("playarea");
 var loca = new Array(4);//位置
     for(var i=0;i<loca.length;i++){
