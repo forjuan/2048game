@@ -156,6 +156,7 @@ function findtarget(m,n,dir){
               var rep = findindex(col,n);
              if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
               changevalue(now,rep);
+              box[now].change = true;//如果改变成2倍值
                return col; 
              }else {//不相等
               return col-1;
@@ -175,6 +176,7 @@ function findtarget(m,n,dir){
             var rep = findindex(m,col);
            if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
               changevalue(now,rep);
+              box[now].change = true;//如果改变成2倍值
               return col; 
            }else {//不相等
              return col+1;
@@ -194,6 +196,7 @@ function findtarget(m,n,dir){
             var rep = findindex(col,n);
          if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
             changevalue(now,rep);
+             box[now].change = true;//如果改变成2倍值
                return col; 
             }else {//不相等
                return col+1;
@@ -215,6 +218,7 @@ function findtarget(m,n,dir){
               var rep = findindex(m,col);
              if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
                changevalue(now,rep);
+                box[now].change = true;//如果改变成2倍值
                return col; 
              }else {//不相等
               return col-1;
@@ -271,7 +275,7 @@ function changeData(now,pre,tarcol,i,j,dir){//每次移动时改变值
      }
             box[now].innerHTML = box[now].value;
             color(box[now]);
-            box[now].change = true;
+            
 };
 function findindex(m,n){//(m,n)坐标对应的box 需要更严谨的方法
 	for(var i=0;i<box.length;i++){
