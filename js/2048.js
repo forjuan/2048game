@@ -155,7 +155,7 @@ function findtarget(m,n,dir){
               var now = findindex(m,n);
               var rep = findindex(col,n);
              if (box[now].value == box[rep].value && !box[rep].change){//若值相等并且被替换的div没有被改变过值
-              changevalue(now,pre);
+              changevalue(now,rep);
                return col; 
              }else {//不相等
               return col-1;
